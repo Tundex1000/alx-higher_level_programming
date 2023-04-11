@@ -117,5 +117,3 @@ integer_validator method dic:
     >>> bg.integer_validator("Foo", {1, 2})
     Traceback (most recent call last):
     TypeError: Foo must be an integer
-Give feedback
-
