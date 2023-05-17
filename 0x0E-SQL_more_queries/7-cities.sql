@@ -1,11 +1,10 @@
--- This script lists all the cities of California
--- that can be found in the database hbtn_0d_usa.
-
--- using subqueries and comparison op '=' to get data
-SELECT cities.id, cities.name
-FROM cities
-WHERE state_id = (
-    SELECT states.id
-    FROM states
-    WHERE states.name = 'California'
-    );
+-- Creates the database hbtn_0d_usa with the table cities.
+CREATE DATABASE IF NOT EXISTS `hbtn_0d_usa`;
+CREATE TABLE IF NOT EXISTS `hbtn_0d_usa`.`cities` (
+    PRIMARY KEY(`id`),
+    `id`       INT          NOT NULL AUTO_INCREMENT,
+    `state_id` INT          NOT NULL,
+    `name`     VARCHAR(256) NOT NULL,
+    FOREIGN KEY(`state_id`)
+    REFERENCES `hbtn_0d_usa`.`states`(`id`)
+);
